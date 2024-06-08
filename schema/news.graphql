@@ -1,0 +1,65 @@
+enum NewsOrderField {
+  NAME
+  CREATED_AT
+  ORDER_ID
+}
+
+input NewsOrder {
+  direction: OrderDirection!
+  field: NewsOrderField!
+}
+
+input NewsFilter {
+  author_id: ID
+  status: NEWS_STATUS
+  from_date: Time
+  to_date: Time
+}
+
+input NewsFreeWord {
+  title: String
+  description: String
+}
+
+input NewNewsInput {
+  title: String!
+  description: String!
+  content: String!
+  status: NEWS_STATUS!
+}
+
+input UpdateNewsInput {
+  title: String!
+  description: String!
+  content: String!
+}
+
+type News {
+  id: ID!
+  title: String!
+  status: NEWS_STATUS!
+  description: String!
+  content: String!
+  author_id: ID!
+  slug: String!
+  author: User!
+  created_at: Time!
+  updated_at: Time!
+  deleted_at: Time
+}
+
+type NewsResponse {
+  data: News
+}
+
+type NewsEdge {
+  node: News!
+  cursor: Cursor!
+}
+
+type NewsResponseGetAll {
+  edges: [NewsEdge!]
+  pagination: Pagination!
+}
+
+# Path: schema/admin/schema/news.graphql

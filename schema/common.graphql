@@ -1,0 +1,67 @@
+directive @goField(forceResolver: Boolean, name: String) on FIELD_DEFINITION | INPUT_FIELD_DEFINITION
+directive @validation(constraints: String!) on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+directive @authorize on QUERY | MUTATION | FIELD_DEFINITION
+
+scalar Time
+scalar Map
+scalar Cursor
+scalar Base64
+scalar Upload
+scalar JSON
+
+enum OrderDirection {
+    ASC
+    DESC
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: Cursor
+  endCursor: Cursor
+}
+
+type Pagination {
+  page: Int!
+  perPage: Int!
+  total: Int!
+}
+
+input PaginationInput {
+  page: Int
+  perPage: Int
+}
+
+enum AttachmentAction {
+  UPLOAD
+  DOWNLOAD
+}
+
+enum AttachmentFolder{
+  employee
+  contract
+}
+
+input AttachmentInput {
+  id: ID!
+  folder: AttachmentFolder!
+  fileName: String!
+  action: AttachmentAction!
+}
+
+type AttachmentResponse {
+  fileName: String!
+  url: String!
+  action: AttachmentAction!
+  id: String!
+}
+
+type Base64Response {
+  data: Base64
+}
+
+enum NEWS_STATUS {
+  published
+  draft
+  hidden
+}

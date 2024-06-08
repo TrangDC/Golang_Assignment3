@@ -1,0 +1,6 @@
+type Query {
+	GetNews(id: ID!): NewsResponse!
+	GetAllNews(pagination: PaginationInput, filter: NewsFilter, freeWord: NewsFreeWord, orderBy: NewsOrder): NewsResponseGetAll!
+
+	GetPreRequest: String!
+}

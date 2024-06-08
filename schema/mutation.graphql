@@ -1,0 +1,7 @@
+type Mutation {
+  CreateNews(input: NewNewsInput!): NewsResponse!
+  UpdateNews(id: ID!, input: UpdateNewsInput!): NewsResponse!
+  DeleteNews(id: ID!): Boolean!
+  
+  CreatePreRequest(input: String!): String!
+}

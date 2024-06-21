@@ -1,0 +1,61 @@
+type Booking {
+  id: UUID!
+  title: String!
+  startDate: String!
+  startTime: String!
+  endTime: String!
+  isRepeat: Boolean
+  endDate: String
+  roomID: UUID!
+  userID: UUID!
+}
+
+type BookingData {
+  id: UUID!
+  title: String!
+  startDate: String!
+  startTime: String!
+  endTime: String!
+  isRepeat: Boolean
+  endDate: String
+  office: Office!
+  room: Room!
+  user: User!
+}
+
+type BookingResponse {
+  message: String!
+  data: BookingData!
+}
+
+input BookingFilter {
+  from: Date!
+  to: Date!
+  officeId: UUID!
+  roomId: UUID
+}
+
+input CreateBookingInput {
+  title: String!
+  startDate: String!
+  startTime: String!
+  endTime: String!
+  isRepeat: Boolean
+  endDate: String
+  officeId: UUID!
+  roomId: UUID!
+  userId: UUID!
+}
+
+input UpdateBookingInput {
+  id: UUID!
+  title: String
+  startDate: String
+  startTime: String
+  endTime: String
+  isRepeat: Boolean
+  endDate: String
+  officeId: UUID
+  roomId: UUID
+  userId: UUID
+}

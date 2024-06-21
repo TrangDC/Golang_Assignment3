@@ -1,0 +1,13 @@
+type Query {
+  
+  GetOffices: [OfficeDTO!]!
+  GetOffice(officeID: UUID!): OfficeDTO!
+
+  #me
+  GetRooms(filter: RoomFilter): [Room!]!
+  GetRoom(roomID: UUID!): Room!
+  GetAvailableRooms(input: GetAvailableRoomInput!): [Room!]!
+
+  GetBookings(filter: BookingFilter!): [BookingData!]!
+  GetBooking(bookingID: UUID!): BookingData!
+}

@@ -1,0 +1,15 @@
+type Mutation {
+
+  CreateOffice(input: CreateOfficeInput!): OfficeResponse!
+  UpdateOffice(input: UpdateOfficeInput!): OfficeResponse!
+  DeleteOffice(officeID: UUID!): String!
+
+  #me
+  CreateRoom(input: CreateRoomInput!): RoomResponse!
+  UpdateRoom(input: UpdateRoomInput!): RoomResponse!
+  DeleteRoom(roomID: UUID!): String!
+
+  CreateBooking(input: CreateBookingInput!): BookingResponse!
+  UpdateBooking(input: UpdateBookingInput!): BookingResponse!
+  CancelBooking(bookingID: UUID!): String!
+}

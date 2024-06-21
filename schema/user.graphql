@@ -1,0 +1,5 @@
+type User {
+  id: UUID!
+  name: String!
+  work_email: String!
+}
